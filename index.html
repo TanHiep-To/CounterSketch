@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="Counterfactual sketch animation asks how a scene depicted by a static sketch would evolve under a hypothetical intervention." name="description">
+<meta content="CounterSketch, Counterfactual Reasoning, Sketch-to-Video Generation, Physical Simulation, Physics-Grounded Generation" name="keywords">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="CounterSketch: Physics-Grounded Counterfactual Reasoning for Sketch-to-Video Generation" property="og:title">
+  <meta content="Counterfactual sketch animation asks how a scene depicted by a static sketch would evolve under a hypothetical intervention." property="og:description">
+  <meta content="website" property="og:type">
+  <meta content="https://tanhiep-to.github.io/CounterSketch/static/images/fig1.jpg" property="og:image">
+<title>CounterSketch: Physics-Grounded Counterfactual Reasoning for Sketch-to-Video Generation</title>
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+<link href="./static/css/bulma.min.css" rel="stylesheet">
+<link href="./static/css/bulma-carousel.min.css" rel="stylesheet">
+<link href="./static/css/bulma-slider.min.css" rel="stylesheet">
+<link href="./static/css/fontawesome.all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet">
+<link href="./static/css/index.css" rel="stylesheet">
+<link href="./static/images/favicon.svg" rel="icon">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script defer src="./static/js/fontawesome.all.min.js"></script>
+<script src="./static/js/bulma-carousel.min.js"></script>
+<script src="./static/js/bulma-slider.min.js"></script>
+<script src="./static/js/index.js"></script>
+</head>
+<body>
+<nav aria-label="main navigation" class="navbar" role="navigation">
+<div class="navbar-brand">
+<a aria-expanded="false" aria-label="menu" class="navbar-burger" role="button">
+<span aria-hidden="true"></span>
+<span aria-hidden="true"></span>
+<span aria-hidden="true"></span>
+</a>
+</div>
+<div class="navbar-menu">
+<div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+<a aria-label="Home" class="navbar-item" href="https://tanhiep-to.github.io/CounterSketch/">
+<span class="icon">
+<i class="fas fa-home"></i>
+</span>
+</a>
+
+</div>
+</div>
+</nav>
+<section class="hero">
+<div class="hero-body">
+<div class="container is-max-desktop">
+<div class="columns is-centered">
+<div class="column has-text-centered">
+<h1 class="title is-1 publication-title">CounterSketch: <br>Physics-Grounded Counterfactual Reasoning for Sketch-to-Video Generation</h1>
+<div class="is-size-5 publication-authors">
+<span class="author-block">Hien&nbsp;Trinh<sup>1,2&dagger;</sup>,</span>
+<span class="author-block">Tan-Hiep&nbsp;To<sup>1,2&dagger;</sup>,</span>
+<span class="author-block">Dinh-Khoi&nbsp;Vo<sup>1,2</sup>,</span>
+<span class="author-block">Tam&nbsp;V.&nbsp;Nguyen<sup>3</sup>,</span>
+<span class="author-block">Minh-Triet&nbsp;Tran<sup>1,2</sup>,</span>
+<span class="author-block">Trung-Nghia&nbsp;Le<sup>1,2*</sup></span>
+</div>
+<div class="is-size-5 publication-authors">
+<span class="author-block"><sup>1</sup>University of Science, Ho Chi Minh City, Vietnam,</span>
+<span class="author-block"><sup>2</sup>Vietnam National University, Ho Chi Minh City, Vietnam,</span>
+<span class="author-block"><sup>3</sup>University of Dayton, Ohio, USA</span>
+</div>
+
+          <div class="is-size-5 publication-authors">
+<span class="author-block"><sup>&dagger;</sup>Equal&nbsp;contribution,</span>
+<span class="author-block"><sup>*</sup>Corresponding&nbsp;author</span>
+</div>
+<div class="column has-text-centered">
+<div class="publication-links">
+<span class="link-block">
+<a aria-disabled="true" class="external-link button is-normal is-rounded is-dark" disabled title="Coming soon">
+<span class="icon">
+<i class="fas fa-file-pdf"></i>
+</span>
+<span>Paper&nbsp;(coming&nbsp;soon)</span>
+</a>
+</span>
+<span class="link-block">
+<a aria-disabled="true" class="external-link button is-normal is-rounded is-dark" disabled title="Coming soon">
+<span class="icon">
+<i class="fab fa-github"></i>
+</span>
+<span>Code&nbsp;(coming&nbsp;soon)</span>
+</a>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="hero teaser">
+<div class="container is-max-desktop">
+<div class="hero-body">
+
+<img alt='A sketch of a ball on a table with the prompt "What if the table disappeared?", followed by counterfactual reasoning, trajectory planning and the resulting sketch video frames.' class="interpolation-image" height="535" loading="lazy" src="./static/images/fig1.jpg" width="1971">
+      <h2 class="subtitle has-text-centered">CounterSketch turns a static sketch and a "What if...?" question into a physically plausible sketch video, evaluated on 80&nbsp;counterfactual questions&nbsp;across&nbsp;20&nbsp;scenes.</h2>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container is-max-desktop">
+
+<div class="columns is-centered has-text-centered">
+<div class="column is-four-fifths">
+<h2 class="title is-3">Abstract</h2>
+<div class="content has-text-justified"><p>Counterfactual sketch animation asks how a scene depicted by a static sketch would evolve under a hypothetical intervention. Given a sketch and a natural-language "What if...?" question, the system must infer both the visual changes induced by the intervention and their physical consequences. We present CounterSketch, a physics-grounded framework transforming counterfactual queries into physically plausible&nbsp;sketch&nbsp;animations.</p><p>CounterSketch couples VLM-guided scene grounding, physics-driven counterfactual event-chain reasoning, constraint-based trajectory generation, and trajectory verification. Specifically, the system decomposes the intervention into a causal sequence of physical transitions to construct an updated scene graph. A constraint-driven solver computes continuous object dynamics, which undergo rigorous validation against physical, geometric,&nbsp;and&nbsp;semantic&nbsp;rules.</p><p>The verified trajectories are projected into object-level image-space motion bounding boxes to guide downstream sketch-video synthesis. Decoupling physical reasoning from visual rendering enables CounterSketch to produce robust, causally grounded trajectories compatible with general video synthesis models. Extensive evaluations confirm that our framework synthesizes physically consistent animations across diverse&nbsp;counterfactual&nbsp;scenarios.</p></div>
+</div>
+</div>
+
+
+
+
+</div>
+</section>
+
+
+<section class="section">
+<div class="container is-max-desktop">
+
+<div class="columns is-centered has-text-centered">
+<div class="column is-four-fifths">
+<h2 class="title is-3">Method</h2>
+<div class="content has-text-justified"><p>CounterSketch consists of five stages, of which the first four operate on an explicit physical representation of the scene. A vision-language model first grounds the sketch into a scene graph whose objects are tied to the underlying vector strokes and whose relations include support, contact, attachment, containment&nbsp;and&nbsp;relative&nbsp;position.</p><p>The "What if...?" prompt is interpreted as an intervention that is applied directly to the vector strokes and the scene graph. A causal reasoning module then organizes the physical consequences into an event chain, and each event is compiled into constraints such as support, contact, non-penetration, rolling and pulley coupling, from which a constrained dynamics solver rolls out continuous&nbsp;object&nbsp;trajectories.</p><p>Each trajectory is verified for geometric, physical and semantic violations, with local repair or replanning accepted only when it reduces the detected violations. The verified trajectories are projected onto the image plane as per-frame bounding box sequences that guide the downstream&nbsp;video&nbsp;synthesis&nbsp;model.</p></div>
+<div class="content has-text-centered"><img alt="Pipeline diagram: sketch scene understanding, physics-driven counterfactual event-chain reasoning, physics-based motion planning with verification and repair, and trajectory generation with a diffusion model." class="interpolation-image" height="541" loading="lazy" src="./static/images/fig3.png" width="1457"></div><h2 class="subtitle has-text-centered"><strong>Figure&nbsp;3.</strong> CounterSketch overview. The physical reasoning layer is separated from the downstream sketch-video&nbsp;generator.</h2></div>
+</div>
+
+
+
+
+</div>
+</section>
+
+
+<section class="section">
+<div class="container is-max-desktop">
+
+<div class="columns is-centered has-text-centered">
+<div class="column is-four-fifths">
+<h2 class="title is-3">Quantitative Results</h2>
+
+<div class="content has-text-justified"><p>In a user study with 50&nbsp;participants, 81%&nbsp;of responses gave positive ratings on Counterfactual Alignment (46%&nbsp;score 5, 35%&nbsp;score 4) and 75%&nbsp;on Physical Plausibility (36%&nbsp;score 5, 39%&nbsp;score 4). Mean scores stay above 4.0&nbsp;out of 5.0&nbsp;across all intervention types, with Object removal rated highest (4.61&plusmn;0.12&nbsp;alignment, 4.54&plusmn;0.13&nbsp;plausibility).</p></div><div class="content has-text-centered"><img alt="Stacked bar chart of rating distributions for the two criteria, and a grouped bar chart of mean ratings per intervention type with error bars." class="interpolation-image" height="1274" loading="lazy" src="./static/images/fig7.png" width="1296"></div><h2 class="subtitle has-text-centered"><strong>Figure&nbsp;7.</strong> Quantitative user study results. (a) Distribution of 5-point Likert ratings for Counterfactual Alignment and Physical Plausibility. (b) Mean scores across diverse intervention categories, where error bars denote&nbsp;standard&nbsp;error.</h2></div>
+</div>
+
+
+
+
+</div>
+</section>
+
+
+<section class="section">
+<div class="container is-max-desktop">
+
+<div class="columns is-centered has-text-centered">
+<div class="column is-four-fifths">
+<h2 class="title is-3">Qualitative Results</h2>
+
+<div class="content has-text-justified"><p>Keyframe sequences for object removal, position change, object detachment, scene reorientation and geometric modification. For example, removing the table causes the ball to fall, and detaching an object from the string alters its&nbsp;subsequent&nbsp;trajectory.</p></div><div class="content has-text-centered"><img alt='Five rows of results, each with an input sketch, a "What if" question and a strip of generated keyframes from 0.0 s to 2.5 s.' class="interpolation-image" height="1364" loading="lazy" src="./static/images/fig6.jpg" width="1694"></div><h2 class="subtitle has-text-centered"><strong>Figure&nbsp;6.</strong> Qualitative results across representative counterfactual intervention types: object removal, position change, object detachment, scene reorientation, and geometric modification. Each sequence shows the resulting sketch motion across&nbsp;sampled&nbsp;keyframes.</h2><div class="content has-text-justified"><p>CounterSketchBench contains 80&nbsp;counterfactual questions across 20&nbsp;base scenes. Each instance pairs a vector sketch with a "What if...?" question that specifies an intervention on&nbsp;the&nbsp;original&nbsp;scene.</p></div><div class="content has-text-centered"><img alt="Six panels, one per intervention type, each showing an input sketch with its question and frames of the generated sketch video." class="interpolation-image" height="1001" loading="lazy" src="./static/images/fig2.jpg" width="1536"></div><h2 class="subtitle has-text-centered"><strong>Figure&nbsp;2.</strong> Representative counterfactual scenarios in CounterSketchBench. The examples cover six types of interventions, including object removal, position, orientation, size/geometry, relation/constraint,&nbsp;and&nbsp;dynamics.</h2></div>
+</div>
+
+
+
+
+</div>
+</section>
+
+<section class="section" id="BibTeX">
+<div class="container is-max-desktop content">
+<h2 class="title">BibTeX</h2>
+<pre><code>@misc{trinhcountersketch,
+  author = {Trinh, Hien and To, Tan-Hiep and Vo, Dinh-Khoi and Nguyen, Tam V. and Tran, Minh-Triet and Le, Trung-Nghia},
+  title  = {CounterSketch: Physics-Grounded Counterfactual Reasoning for Sketch-to-Video Generation},
+}</code></pre>
+</div>
+</section>
+<footer class="footer">
+<div class="container">
+<div class="content has-text-centered">
+
+
+</div>
+<div class="columns is-centered">
+<div class="column is-8">
+<div class="content">
+<p>
+            This website is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+<p>
+            This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+          </p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body>
+</html>
